@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects>
+	
+	<object Name="Animal" Load="Merge">
+		<mutation Name="AdrenalControl2" Level="5" />
+	</object>
+
+	<object Name="NPC" Load="Merge">
+		<mutation Name="AdrenalControl2" Level="7" />
+	</object>
+	
+	<object Name="MutatedFungus" Load="Merge">
+		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
+		<part Name="Body" Anatomy="FungusN" />
+		<removepart Name="FungusProperties" />
+	</object>
+	
+	<object Name="FungusPuffer" Inherits="MutatedFungus">
+		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{Y|brooding puff}}" RenderString="231" ColorString="&amp;C" DetailColor="M" />
+		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
+		<part Name="Corpse" CorpseChance="25" CorpseBlueprint="Humanoid Corpse" />
+		<inventoryobject Blueprint="Infected Knob" Number="2" />
+		<inventoryobject Blueprint="Moldy Knob" Number="6" />
+		<mutation Name="TemporalFugue" Level="6" />
+		<mutation Name="Teleportation" Level="1" />
+		<part Name="Role" Value="Skirmisher" />
+		<stat Name="Hitpoints" Value="100" />
+		<stat Name="Level" Value="23" />
+		<stat Name="Strength" sValue="28" />
+		<stat Name="Speed" Value="85" />
+		<skill Name="Tactics_Throwing" />
+		<tag Name="GasDamageAsIfInanimate" />
+		<tag Name="DynamicObjectsTable:Fungal_Creatures" />
+		<tag Name="ExcludeFromVillageZero" />
+		<tag Name="AggregateWith" Value="FungusPuffer" />
+		<tag Name="BaseObject" Value="*noinherit" />
+	</object>
+	
+	<object Name="Infected Knob" Inherits="NaturalWeapon">
+		<part Name="Render" DisplayName="{{g|moldy}} knob" Tile="Creatures/natural-weapon-knob.bmp" ColorString="&amp;g" />
+		<part Name="PuffInfection" ColorString="1" />
+		<part Name="MeleeWeapon" PenBonus="2" MaxStrengthBonus="1000" BaseDamage="2d3" Skill="Cudgel" />
+		<part Name="CardiacArrestOnHit" Chance="4" />
+	</object>
+	
+	<object Name="FungusPuffer1" Inherits="FungusPuffer">
+		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{W|brooding goldpuff}}" RenderString="231" ColorString="&amp;W" DetailColor="M" />
+		<part Name="Description" Short="Auric gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of golden spores like motes of sunlight. They flutter back to the cap and congeal into a golden plasma." />
+		<tag Name="Species" Value="goldpuff" />
+	</object>
+	
+	<object Name="FungusPuffer2" Inherits="FungusPuffer">
+		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{B|brooding azurepuff}}" RenderString="231" ColorString="&amp;B" DetailColor="M" />
+		<part Name="Description" Short="Azure gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of indigo spores like motes of twilight. They flutter back to the cap and congeal into an azure plasma." />
+		<tag Name="Species" Value="azurepuff" />
+	</object>
+	
+	<object Name="FungusPuffer3" Inherits="FungusPuffer">
+		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{R|brooding rosepuff}}" RenderString="231" ColorString="&amp;R" DetailColor="M" />
+		<part Name="Description" Short="Rose gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of ruby spores like motes of twilight. They flutter back to the cap and congeal into a rose plasma." />
+		<tag Name="Species" Value="rosepuff" />
+	</object>
+	
+	<object Name="FungusPuffer4" Inherits="FungusPuffer">
+		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{g|brooding jadepuff}}" RenderString="231" ColorString="&amp;g" DetailColor="M" />
+		<part Name="Description" Short="Jade gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of emerald spores like motes of twilight. They flutter back to the cap and congeal into a jade plasma." />
+		<tag Name="Species" Value="jadepuff" />
+	</object>
+	
+	<object Name="Skybear" Load="Merge" >
+		<mutation Name="Teleportation" Level="1" />
+	</object>
+	
+	<object Name="Croc" Load="Merge">
+		<skill Name="Axe_Dismember" />
+		<skill Name="Axe" />
+		<skill Name="Axe_Expertise" />
+		<skill Name="Axe_Berserk" />
+		<skill Name="Submersion" />
+		<part Name="Triner" />
+	</object>
+
+	<object Name="Sultan Croc" Load="Merge">
+		<skill Name="Axe_Berserk" />
+	</object>
+	
+	<object Name="Bite" Load="Merge">
+		<part Name="BleedingOnHit" Amount="1-2" SaveTarget="18" Stack="true" />
+	</object>
+	
+	<object Name="Saltwurm" Load="Merge">
+		<mutation Name="HeightenedSpeed" Level="20" />
+		<part Name="Brain" Hostile="true" Factions="Prey-100,Mollusks-50" Calm="false" Wanders="false" />
+	</object>
+	
+	<object Name="NaturalWeapon" Load="Merge">
+		<part Name="ModSerrated" Chance="8" />
+		<part Name="DisarmOnHit" Chance="10" />
+	</object>
+
+	<object Name="Moldy ball" Inherits="Throwing Axe">
+		<part Name="Render" DisplayName="throwing axe" RenderString="\" ColorString="&amp;m" Tile="Items/sw_mediumboulder.bmp" DetailColor="M" Occluding="false" />
+		<part Name="Description" Short="A ball of spores, molded by the fungi. Lord knows what you're going to do with this" />
+		<part Name="ThrownWeapon" Damage="1d8" Penetration="3" Attributes="Cudgel" />
+		<part Name="DiseaseOnHit" Chance="15" />
+		<part Name="EmitGasOnHit" />
+		<part Name="CrumblesOnHit" Chance="100" />
+	</object>
+</objects>

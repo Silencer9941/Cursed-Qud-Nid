@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bodies>
+	<anatomies>
+		<anatomy Name="FungusN" Category="Fungal">
+			<part Type="Cap">
+				<part Type="Sensory Frill" />
+			</part>
+			<part Type="Back" />
+			<part Type="Stalk" Laterality="Right">
+				<part Type="Hypha" Laterality="Right" SupportsDependent="Lateral Hyphae" />
+			</part>
+			<part Type="Stalk" Laterality="Left">
+				<part Type="Hypha" Laterality="Left" SupportsDependent="Lateral Hyphae" />
+			</part>
+			<part Type="Missile Weapon" Laterality="Right" />
+			<part Type="Missile Weapon" Laterality="Left" />
+			<part Type="Lateral Hyphae" DependsOn="Lateral Hyphae" />
+			<part Type="Legs" />
+		</anatomy>
+	</anatomies>
+</bodies>
