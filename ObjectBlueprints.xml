@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objects>
-	
+	<!-- makes all Animals and NPCs have Adrenal Control mutation-->
 	<object Name="Animal" Load="Merge">
 		<mutation Name="AdrenalControl2" Level="5" />
 	</object>
@@ -8,13 +8,13 @@
 	<object Name="NPC" Load="Merge">
 		<mutation Name="AdrenalControl2" Level="7" />
 	</object>
-	
+	<!--gives Fungi a modified body that includes legs instead of a stalk so they can move-->
 	<object Name="MutatedFungus" Load="Merge">
 		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
 		<part Name="Body" Anatomy="FungusN" />
 		<removepart Name="FungusProperties" />
 	</object>
-	
+	<!--changed puffer fungi enemies to have Temporal Fugue, 2 melee weapons and some throwables to harass the player, slower speed and decreased HP to help balace the changes-->
 	<object Name="FungusPuffer" Inherits="MutatedFungus">
 		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{Y|brooding puff}}" RenderString="231" ColorString="&amp;C" DetailColor="M" />
 		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
@@ -42,8 +42,8 @@
 		<part Name="MeleeWeapon" PenBonus="2" MaxStrengthBonus="1000" BaseDamage="2d3" Skill="Cudgel" />
 		<part Name="CardiacArrestOnHit" Chance="4" />
 	</object>
-	
-	<object Name="FungusPuffer1" Inherits="FungusPuffer">
+	<!--not loading this code until i get a mutation to work for each individual fungal infection for each puffer, since Spore Puff mutation causes them to be stationary even with proper brain attributes to allow walking-->
+	<!--<object Name="FungusPuffer1" Inherits="FungusPuffer">
 		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{W|brooding goldpuff}}" RenderString="231" ColorString="&amp;W" DetailColor="M" />
 		<part Name="Description" Short="Auric gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of golden spores like motes of sunlight. They flutter back to the cap and congeal into a golden plasma." />
 		<tag Name="Species" Value="goldpuff" />
@@ -65,12 +65,12 @@
 		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{g|brooding jadepuff}}" RenderString="231" ColorString="&amp;g" DetailColor="M" />
 		<part Name="Description" Short="Jade gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of emerald spores like motes of twilight. They flutter back to the cap and congeal into a jade plasma." />
 		<tag Name="Species" Value="jadepuff" />
-	</object>
-	
+	</object>-->
+	<!--Saad Amus deserves a chance so now he can teleport out of cryokinesis-->
 	<object Name="Skybear" Load="Merge" >
 		<mutation Name="Teleportation" Level="1" />
 	</object>
-	
+	<!--might modify, starting crocs should be harder, similar to sultan crocs. Triner part is a joke and will be used elsewhere-->
 	<object Name="Croc" Load="Merge">
 		<skill Name="Axe_Dismember" />
 		<skill Name="Axe" />
@@ -79,25 +79,25 @@
 		<skill Name="Submersion" />
 		<part Name="Triner" />
 	</object>
-
+	<!--sultan crocs should be able to Berserk-->
 	<object Name="Sultan Croc" Load="Merge">
 		<skill Name="Axe_Berserk" />
 	</object>
-	
+	<!--All biting natural weapons can now cause bleeding-->
 	<object Name="Bite" Load="Merge">
 		<part Name="BleedingOnHit" Amount="1-2" SaveTarget="18" Stack="true" />
 	</object>
-	
+	<!--Salt Kraken are too slow-->
 	<object Name="Saltwurm" Load="Merge">
 		<mutation Name="HeightenedSpeed" Level="20" />
 		<part Name="Brain" Hostile="true" Factions="Prey-100,Mollusks-50" Calm="false" Wanders="false" />
 	</object>
-	
+	<!-- all natural weapons now have a small chance to dismember and disarm on hit. Players rarely encounter these effects throughout the game-->
 	<object Name="NaturalWeapon" Load="Merge">
 		<part Name="ModSerrated" Chance="8" />
 		<part Name="DisarmOnHit" Chance="10" />
 	</object>
-
+	<!--mushroom throwable that *should* cause a poison cloud, chance of either disease, and crumble on impact-->
 	<object Name="Moldy ball" Inherits="Throwing Axe">
 		<part Name="Render" DisplayName="throwing axe" RenderString="\" ColorString="&amp;m" Tile="Items/sw_mediumboulder.bmp" DetailColor="M" Occluding="false" />
 		<part Name="Description" Short="A ball of spores, molded by the fungi. Lord knows what you're going to do with this" />
