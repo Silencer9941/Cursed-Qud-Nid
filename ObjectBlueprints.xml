@@ -8,6 +8,11 @@
 	<object Name="NPC" Load="Merge">
 		<mutation Name="AdrenalControl2" Level="7" />
 	</object>
+<!-- Snapjaws gain dismember ability, on top of their teeth already being serrated. may change natural weapons to only give dismember skill instead of all serrated weapons.-->
+ <object Name=BaseSnapjaw" Load="Merge">
+  <skill Name="Axe_Dismember" />
+ </object>
+
 	<!--gives Fungi a modified body that includes legs instead of a stalk so they can move, modified Factions element makes them hostile on sight rather than neutral-->
 	<object Name="MutatedFungus" Load="Merge">
 		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
