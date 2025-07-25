@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mutations Hidden="true" ExcludeFromPool="true" Load="Merge">
+	<category Name="Physical" Load="Merge">
+		<!--Simply adding the mutations from HiddenMutations.xml and changing the mutation Name="" slightly makes a hidden mutation selectable. Not selectable if using default name.-->
+		<mutation Name="Spit Lava" Cost="5" Class="LavaGlands" BearerDescription="lava spitters" Tile="Mutations/slime_glands.bmp" />
+	</category>
+</mutations>
+

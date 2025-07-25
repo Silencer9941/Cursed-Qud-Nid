@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objects>
-	<!-- makes all Animals and NPCs have Adrenal Control mutation-->
+	
 	<object Name="Animal" Load="Merge">
 		<mutation Name="AdrenalControl2" Level="5" />
 	</object>
 
 	<object Name="NPC" Load="Merge">
-		<mutation Name="AdrenalControl2" Level="7" />
+		<mutation Name="AdrenalControl2" Level="3" />
 	</object>
-<!-- Snapjaws gain dismember ability, on top of their teeth already being serrated. may change natural weapons to only give dismember skill instead of all serrated weapons.-->
- <object Name=BaseSnapjaw" Load="Merge">
-  <skill Name="Axe_Dismember" />
- </object>
-
-	<!--gives Fungi a modified body that includes legs instead of a stalk so they can move, modified Factions element makes them hostile on sight rather than neutral-->
-	<object Name="MutatedFungus" Load="Merge">
+	
+	<object Name="MMutatedFungus" Inherits="MutatedFungus">
 		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
 		<part Name="Body" Anatomy="FungusN" />
 		<removepart Name="FungusProperties" />
 	</object>
-	<!--changed puffer fungi enemies to have Temporal Fugue, 2 melee weapons and some throwables to harass the player, slower speed and decreased HP to help balace the changes-->
-	<object Name="FungusPuffer" Inherits="MutatedFungus">
-		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{Y|brooding puff}}" RenderString="231" ColorString="&amp;C" DetailColor="M" />
+	
+	<object Name="MFungusPuffer" Inherits="MMutatedFungus">
+		<part Name="Render" Tile="cursed/mobile_mushroom.png" RenderIfDark="true" DisplayName="{{Y|brooding puff}}" RenderString="231" ColorString="&amp;C" DetailColor="M" />
 		<part Name="Brain" Hostile="true" Mobile="true" Wanders="true" Factions="Fungi-600" />
 		<part Name="Corpse" CorpseChance="25" CorpseBlueprint="Humanoid Corpse" />
-		<inventoryobject Blueprint="Infected Knob" Number="2" />
-		<inventoryobject Blueprint="Moldy Knob" Number="6" />
+		<inventoryobject Blueprint="infected knob" Number="2" />
+		<inventoryobject Blueprint="SleepGasGrenade2" Number="2" />
 		<mutation Name="TemporalFugue" Level="1" />
 		<mutation Name="Teleportation" Level="1" />
-		<part Name="Role" Value="Skirmisher" />
-		<stat Name="Hitpoints" Value="100" />
+		<stat Name="Hitpoints" Value="30" />
+		<stat Name="AV" Value="0" />
+		<stat Name="DV" Value="1" />
 		<stat Name="Level" Value="23" />
 		<stat Name="Strength" sValue="28" />
 		<stat Name="Speed" Value="85" />
@@ -39,76 +35,226 @@
 		<tag Name="ExcludeFromVillageZero" />
 		<tag Name="AggregateWith" Value="FungusPuffer" />
 		<tag Name="BaseObject" Value="*noinherit" />
+		<tag Name="NoDropOnDeath" />
 	</object>
 	
-	<object Name="Infected Knob" Inherits="NaturalWeapon">
+	<object Name="infected knob" Inherits="NaturalWeapon">
 		<part Name="Render" DisplayName="{{g|moldy}} knob" Tile="Creatures/natural-weapon-knob.bmp" ColorString="&amp;g" />
 		<part Name="PuffInfection" ColorString="1" />
 		<part Name="MeleeWeapon" PenBonus="2" MaxStrengthBonus="1000" BaseDamage="2d3" Skill="Cudgel" />
 		<part Name="CardiacArrestOnHit" Chance="4" />
 	</object>
-	<!--not loading this code until i get a mutation to work for each individual fungal infection for each puffer, since Spore Puff mutation causes them to be stationary even with proper brain attributes to allow walking-->
-	<!--<object Name="FungusPuffer1" Inherits="FungusPuffer">
-		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{W|brooding goldpuff}}" RenderString="231" ColorString="&amp;W" DetailColor="M" />
+	
+	<object Name="MFungusPuffer1" Inherits="MFungusPuffer">
+		<part Name="Render" Tile="cursed/mobile_mushroom.png" RenderIfDark="true" DisplayName="{{W|brooding goldpuff}}" RenderString="231" ColorString="&amp;W" DetailColor="M" />
 		<part Name="Description" Short="Auric gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of golden spores like motes of sunlight. They flutter back to the cap and congeal into a golden plasma." />
 		<tag Name="Species" Value="goldpuff" />
 	</object>
 	
-	<object Name="FungusPuffer2" Inherits="FungusPuffer">
-		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{B|brooding azurepuff}}" RenderString="231" ColorString="&amp;B" DetailColor="M" />
+	<object Name="MFungusPuffer2" Inherits="MFungusPuffer">
+		<part Name="Render" Tile="cursed/mobile_mushroom.png" RenderIfDark="true" DisplayName="{{B|brooding azurepuff}}" RenderString="231" ColorString="&amp;B" DetailColor="M" />
 		<part Name="Description" Short="Azure gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of indigo spores like motes of twilight. They flutter back to the cap and congeal into an azure plasma." />
 		<tag Name="Species" Value="azurepuff" />
 	</object>
 	
-	<object Name="FungusPuffer3" Inherits="FungusPuffer">
-		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{R|brooding rosepuff}}" RenderString="231" ColorString="&amp;R" DetailColor="M" />
+	<object Name="MFungusPuffer3" Inherits="MFungusPuffer">
+		<part Name="Render" Tile="cursed/mobile_mushroom.png" RenderIfDark="true" DisplayName="{{R|brooding rosepuff}}" RenderString="231" ColorString="&amp;R" DetailColor="M" />
 		<part Name="Description" Short="Rose gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of ruby spores like motes of twilight. They flutter back to the cap and congeal into a rose plasma." />
 		<tag Name="Species" Value="rosepuff" />
 	</object>
 	
-	<object Name="FungusPuffer4" Inherits="FungusPuffer">
-		<part Name="Render" Tile="Creatures/sw_mushroom.bmp" RenderIfDark="true" DisplayName="{{g|brooding jadepuff}}" RenderString="231" ColorString="&amp;g" DetailColor="M" />
+	<object Name="MFungusPuffer4" Inherits="MFungusPuffer">
+		<part Name="Render" Tile="cursed/mobile_mushroom.png" RenderIfDark="true" DisplayName="{{g|brooding jadepuff}}" RenderString="231" ColorString="&amp;g" DetailColor="M" />
 		<part Name="Description" Short="Jade gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of emerald spores like motes of twilight. They flutter back to the cap and congeal into a jade plasma." />
 		<tag Name="Species" Value="jadepuff" />
-	</object>-->
-	<!--Saad Amus deserves a chance so now he can teleport out of cryokinesis-->
+	</object>
+	
 	<object Name="Skybear" Load="Merge" >
 		<mutation Name="Teleportation" Level="1" />
+		<stat Name="HeatResistance" Value="100" />
+		<tag Name="BleedLiquid" Value="lava-1000" />
+		<tag Name="BleedColor" Value="&amp;R" />
+		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
 	</object>
-	<!--might modify, starting crocs should be harder, similar to sultan crocs. Triner part is a joke and will be used elsewhere-->
+
+	<object Name="SkybearClone" Load="Merge" >
+		<mutation Name="Teleportation" Level="1" />
+	</object>
+	
 	<object Name="Croc" Load="Merge">
 		<skill Name="Axe_Dismember" />
 		<skill Name="Axe" />
 		<skill Name="Axe_Expertise" />
-		<skill Name="Axe_Berserk" />
 		<skill Name="Submersion" />
-		<part Name="Triner" />
 	</object>
-	<!--sultan crocs should be able to Berserk-->
+
 	<object Name="Sultan Croc" Load="Merge">
 		<skill Name="Axe_Berserk" />
 	</object>
-	<!--All biting natural weapons can now cause bleeding-->
+	
 	<object Name="Bite" Load="Merge">
-		<part Name="BleedingOnHit" Amount="1-2" SaveTarget="18" Stack="true" />
+		<part Name="BleedingOnHit" Amount="1-3" SaveTarget="18" Stack="true" />
 	</object>
-	<!--Salt Kraken are too slow-->
+	
 	<object Name="Saltwurm" Load="Merge">
 		<mutation Name="HeightenedSpeed" Level="20" />
 		<part Name="Brain" Hostile="true" Factions="Prey-100,Mollusks-50" Calm="false" Wanders="false" />
 	</object>
-	<!-- all natural weapons now have a small chance to dismember and disarm on hit. Players rarely encounter these effects throughout the game-->
+	
 	<object Name="NaturalWeapon" Load="Merge">
-		<part Name="ModSerrated" Chance="8" />
-		<part Name="DisarmOnHit" Chance="10" />
+		<part Name="DisarmOnHit" Chance="8" />
 	</object>
-	<!--mushroom throwable that *should* cause a poison cloud, chance of either disease, and crumble on impact-->
-	<object Name="Moldy ball" Inherits="Throwing Axe">
-		<part Name="Render" DisplayName="throwing axe" RenderString="\" ColorString="&amp;m" Tile="Items/sw_mediumboulder.bmp" DetailColor="M" Occluding="false" />
-		<part Name="Description" Short="A ball of spores, molded by the fungi. Lord knows what you're going to do with this" />
-		<part Name="ThrownWeapon" Damage="1d8" Penetration="3" Attributes="Cudgel" />
-		<part Name="DiseaseOnHit" Chance="15" />
-		<part Name="EmitGasOnHit" />
-		<part Name="CrumblesOnHit" Chance="100" />
+
+	<object Name="Metamorphic Polygel" Load="Merge">
+		<removepart Name="Examiner" Complexity="5" Alternate="UnknownBottle" />
+		<part Name="Render" DisplayName="{{K|nullified}} polygel" Tile="items/sw_spray.bmp" ColorString="&amp;y" DetailColor="K" RenderString="012" RenderLayer="5" />
+		<part Name="Physics" Weight="5" />
+		<part Name="Description" Short="Haha. Hahaha. Ha. Nice try, sorry." />
+		<part Name="Commerce" Value="1" />
+		<removepart Name="Applicator" />
+		<removepart Name="Polygel" />
+		<removetag Name="Gift" Value="*noinherit" />
+		<removetag Name="GiftSkillRestriction" Value="Tinkering_Tinker3" />
+		<tag Name="Tier" Value="1" />
+		<removestag Name="Travel" />
+		<removepart Name="ItemElements" Elements="chance::2" />
+	</object>
+	<object Name="Dromad" Load="Merge">
+		<stat Name="HeatResistance" Value="100" />
+		<tag Name="BleedLiquid" Value="lava-1000" />
+		<tag Name="BleedColor" Value="&amp;R" />
+		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
+	</object>
+	<object Name="Snapjaw EMP" Inherits="Snapjaw">
+		<part Name="AIShootAndScoot" Duration="1d3-1" />
+		<part Name="Render" ColorString="&amp;w" DisplayName="{{W|sparky}} snapjaw" Tile="Assets_Content_Textures_Creatures_sw_snapjaw_gunner.bmp" DetailColor="W" />
+		<stat Name="Hitpoints" Value="12" />
+		<stat Name="Speed" Value="125" />
+		<inventoryobject Blueprint="EMPGrenade1" Number="2" />
+		<inventoryobject Blueprint="Arc Winder" Number="1" />
+		<inventoryobject Blueprint="Chem Cell" Number="3" />
+		<tag Name="Role" Value="Artillery" />
+		<tag Name="DynamicObjectsTable:Snapjaws" />
+		<tag Name="AggregateWith" Value="Snapjaw EMP" />
+		<tag Name="NoDropOnDeath" />
+	</object>
+	<object Name="Snapjaw" Load="Merge">
+		<skill Name="Axe_Dismember" />
+		<skill Name="Tactics_Throwing" />
+		<!--<stat Name="HeatResistance" Value="100" />
+		<tag Name="BleedLiquid" Value="lava-1000" />
+		<tag Name="BleedColor" Value="&amp;R" />
+		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />-->
+	</object>
+	<object Name="Baboon" Load="Merge">
+		<removeinventoryobject Blueprint="Small Stone" Number="5" />
+		<tag Name="InventoryPopulationTable" Value="BaboonInventory"/>
+		<tag Name="NoDropOnDeath" />
+	</object>
+	<object Name="Radpole" Inherits="BaseReptile" >
+		<part Name="Render" DisplayName="{{g|radpole}}" Tile="Creatures/sw_madpole.bmp"  RenderString="224" ColorString="&amp;g" />
+		<part Name="Corpse" CorpseChance="100" CorpseBlueprint="Madpole Corpse" />
+		<stat Name="Hitpoints" Value="55" />
+		<stat Name="Strength" sValue="38" />
+		<stat Name="Agility" sValue="27" />
+		<stat Name="Level" Value="27" />
+		<part Name="Brain" WandersRandomly="true" Wanders="false" Hostile="True" Aquatic="false" />
+		<mutation Name="StickyTongue" Level="6" />
+		<mutation Name="Wings" Level="10" />
+		<mutation Name="Caracpace" Level="8" />
+		<skill Name="Axe_Expertise" />
+		<skill Name="Axe_Dismember" />
+		<part Name="LiquidProximityFrenzies" Range="0" Duration="10" BerserkImmediately="true" PreferBleedingTarget="true" />
+		<part Name="Description" Short="The distended jaw of this large aureolin fish is lined with wicked, blade-like teeth. You shudder to imagine what sort of terrible amphibious fiend the madpole might one day become." />
+		<inventoryobject Blueprint="Madpole_Jaws" />
+		<inventoryobject Blueprint="Goatfolk_Horns" />
+		<property Name="NoLoot" Value="true" />
+		<stat Name="HeatResistance" Value="100" />
+		<tag Name="BleedLiquid" Value="lava-1000" />
+		<tag Name="BleedColor" Value="&amp;R" />
+		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
+		<tag Name="Role" Value="Minion" />
+		<tag Name="Species" Value="fish" />
+		<tag Name="DynamicObjectsTable:Water_Creatures" />
+	</object>
+	<object Name="Snapjaw Grenadier" Inherits="Snapjaw">
+		<part Name="AIShootAndScoot" Duration="1d3-1" />
+		<part Name="Render" ColorString="&amp;R" DisplayName="snapjaw grenadier" Tile="Assets_Content_Textures_Creatures_sw_snapjaw_gunner.bmp" DetailColor="k" />
+		<stat Name="Hitpoints" Value="6" />
+		<tag Name="InventoryPopulationTable" Value="BaboonInventory"/>
+		<tag Name="NoDropOnDeath" />
+		<tag Name="Role" Value="Skirmisher" />
+		<tag Name="DynamicObjectsTable:Snapjaws" />
+		<tag Name="AggregateWith" Value="Snapjaw Grenadier" />
+	</object>
+	<object Name="Snapjaw Amalgamation" Inherits="Snapjaw">
+		<part Name="Render" ColorString="&amp;m" DisplayName="snapjaw {{m|amalgamation}}" Tile="Creatures/sw_snapjaw_howler.bmp" DetailColor="r" />
+		<inventoryobject Blueprint="Sawhander_Saw" />
+		<inventoryobject Blueprint="infected knob" />
+		<skill Name="Axe" />
+		<skill Name="Axe_Proficiency" />
+		<skill Name="Endurance_Calloused" />
+		<skill Name="Tactics_Jump" />
+		<skill Name="Cudgel_ShatteringBlows" />
+		<stat Name="Level" Value="14" />
+		<stat Name="Hitpoints" Value="60" />
+		<stat Name="Intelligence" Boost="2" />
+		<stat Name="Willpower" Boost="3" />
+		<stat Name="Ego" Boost="3" />
+		<stat Name="Strength" Boost="3" />
+		<tag Name="NoDropOnDeath" />
+		<tag Name="Role" Value="Skirmisher" />
+		<tag Name="DynamicObjectsTable:Snapjaws" />
+		<tag Name="AggregateWith" Value="Snapjaw God" />
+		<stat Name="HeatResistance" Value="100" />
+		<tag Name="BleedLiquid" Value="lava-1000" />
+		<tag Name="BleedColor" Value="&amp;R" />
+		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
+		<part Name="RandomMutations" Mental="2d4" MentalLevel="1d2" Physical="2d4" PhysicalLevel="1d2" />
+	</object>
+	<!-- Fuck it, we ball-->
+	<object Name="Red Jell" Load="Merge">
+		<mutation Name="LavaGlands" Level="1" />
+	</object>
+	<!--more sources of diease here we come!-->
+	<object Name="Infected Snapjaw" Inherits="Snapjaw Troglodyte">
+		<part Name="Render" DisplayName="infected snapjaw" Tile="Creatures/sw_snapjaw_feeder.bmp" />
+		<part Name="Description" Short="This snapjaw seems to carry some kind of disease, you can tell by it's fangs and the maggots eating away at it's flesh." />
+		<part Name="Swarmer" />
+		<stat Name="Level" Value="11" />
+		<stat Name="AV" Value="1" />
+		<stat Name="Speed" Value="80" />
+		<stat Name="Hitpoints" Value="12" />
+		<tag Name="Role" Value="Minion" />
+		<inventoryobject Blueprint="infected_bite" />
+		<skill Name="ShortBlades_Expertise" />
+		<skill Name="ShortBlades_Bloodletter" />
+		<skill Name="ShortBlades_Jab" />
+	</object>
+	<object Name="infected bite" Inherits="Bite">
+		<part Name="Render" DisplayName="{{w|rotten fangs}}" />
+		<part Name="MeleeWeapon" BaseDamage="2d2" />
+		<part Name="DiseaseOnHit" Chance="50" />
+		<part Name="RustOnHit" Chance="30" />
+		<tag Name="Gender" Value="plural" />
+	</object>
+	<!--Nore more absuing rifle holders for free money early-game-->
+	<object Name="Goatfolk Yurtwarden" Load="Merge">
+		<tag Name="NoDropOnDeath" />
+	</object>
+	<object Name="Issachari Rifler" Load="Merge">
+		<tag Name="NoDropOnDeath" />
+	</object>
+	<!--astral tabbies deserve a chance dammit!-->
+	<object Name="Astral Tabby" Load="Merge">
+		<removemutation Name="Astral" />
+		<mutation Name="Phasing" Level="1" />
+		<removetag Name="Astral" />
+	</object>
+	<object Name="Astral_Tabby_Claw" Load="Merge">
+		<part Name="ModSerrated" Chance="20" />
+	</object>
+	<object Name="Astral_Tabby_Bite" Load="Merge">
+		<part Name="ModSerrated" Chance="20" />
 	</object>
 </objects>
