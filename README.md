@@ -33,3 +33,4 @@
 
   25. Added mutating effect to Irisdual Beams, Glowmoths, Crungles, and gamma moth mutating happens much faster.
   26. **Cloning Draught removed from all sources <ins>except Slime Bogs</ins>.**
+  27. Cyclopean Gibbons no longer use small rocks, they use grenades now too
