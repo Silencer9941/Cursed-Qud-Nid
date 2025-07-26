@@ -27,4 +27,5 @@ Changed I've made to the base game:
   24. Merchant stock does not respawn (possibly. requires testing)
 //V 0.1.2
   25. Added mutating effect to Irisdual Beams, Glowmoths, Crungles, and gamma moth mutating happens much faster
-  26. 
+  26. Cloning Draught removed from all sources except Slime Bogs
+  27. 
