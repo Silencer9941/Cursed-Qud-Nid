@@ -1,4 +1,5 @@
 Changed I've made to the base game:
+//V 0.1
   1. Bite-type Natural Weapons cause 1-3 bleed damage on hit
   2. Animals All come with Lv.5 Adrenal Control: Animals are feral and not afraid to fight you if needed in real life
   3. NPCs all come with Lv.3 Adrenal Control: Picking a fight with someone might be more difficult now
@@ -22,3 +23,8 @@ Changed I've made to the base game:
   21. Goatfolk Yurtwardens and Issachari Riflers no longer drop their items. Find a new way to make money.
   22. Astral Tabbies are now Phasing, not Astrally-bound. Their natural weapons do not dismember 75% of the time anymore however
   23. Bloated Pearlfrog and Svardym Hatchlings can spawn sometimes in the Salt Marsh now. Big risk, big reward.
+//V 0.1.1
+  24. Merchant stock does not respawn (possibly. requires testing)
+//V 0.1.2
+  25. Added mutating effect to Irisdual Beams, Glowmoths, Crungles, and gamma moth mutating happens much faster
+  26. 
