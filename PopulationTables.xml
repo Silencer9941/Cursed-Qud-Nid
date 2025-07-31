@@ -212,4 +212,27 @@
 			</group>
 		</group>
 	</population>
+	<!--All things that have to do with cloning draught being sold. Can only be found in Slime Bogs now-->
+	<population Name="RandomRareLiquid" Load="Merge">
+		<group Name="Liquid" Style="pickone" Load="Merge">
+			<removeobject Blueprint="cloning" />
+		</group>
+	</population>
+	<population Name="RegenTankLiquid" Load="Merge">
+		<group Name="Options" Style="pickone" Load="Merge">
+			<object Blueprint="convalessence" Number="64-128" />
+			<removeobject Weight="10" Blueprint="convalessence-63,cloning-1" Number="64-128" />
+			<removeobject Weight="1" Blueprint="cloning" Number="1-2" />
+		</group>
+	</population>
+	<population Name="Ingredients_MidTiers" Load="Merge">
+		<group Name="Items" Style="pickone" Weight="1" Load="Merge">
+			<removeobject Blueprint="CloningDraughtWaterskin_Ingredient" />
+		</group>
+	</population>
+	<population Name="Villages_LiquidType_Hightier_*Default" Load="Merge">
+		<group Name="Options" Style="pickone" Load="Merge">
+			<removeobject Blueprint="cloning" />
+		</group>
+	</population>
 </populations>

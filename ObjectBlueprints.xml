@@ -68,19 +68,19 @@
 		<part Name="Description" Short="Jade gills tense and release, tense and release, tense and release, as if drawing breath into the puffer's stem. With each exhalation it belches a cloud of emerald spores like motes of twilight. They flutter back to the cap and congeal into a jade plasma." />
 		<tag Name="Species" Value="jadepuff" />
 	</object>
-	
+	<!--No more avoiding this dude-->
 	<object Name="Skybear" Load="Merge" >
 		<mutation Name="Teleportation" Level="1" />
-		<stat Name="HeatResistance" Value="100" />
-		<tag Name="BleedLiquid" Value="lava-1000" />
+		<stat Name="HeatResistance" Value="50" />
+		<!--<tag Name="BleedLiquid" Value="lava-1000" />
 		<tag Name="BleedColor" Value="&amp;R" />
-		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
+		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />-->
 	</object>
 
 	<object Name="SkybearClone" Load="Merge" >
 		<mutation Name="Teleportation" Level="1" />
 	</object>
-	
+	<!--crocs deserve a chance-->
 	<object Name="Croc" Load="Merge">
 		<skill Name="Axe_Dismember" />
 		<skill Name="Axe" />
@@ -91,16 +91,16 @@
 	<object Name="Sultan Croc" Load="Merge">
 		<skill Name="Axe_Berserk" />
 	</object>
-	
+	<!--finally a use for bandages-->
 	<object Name="Bite" Load="Merge">
 		<part Name="BleedingOnHit" Amount="1-3" SaveTarget="18" Stack="true" />
 	</object>
-	
+	<!--why not-->
 	<object Name="Saltwurm" Load="Merge">
 		<mutation Name="HeightenedSpeed" Level="20" />
 		<part Name="Brain" Hostile="true" Factions="Prey-100,Mollusks-50" Calm="false" Wanders="false" />
 	</object>
-	
+	<!--natural weapon modifier-->
 	<object Name="NaturalWeapon" Load="Merge">
 		<part Name="DisarmOnHit" Chance="8" />
 	</object>
@@ -141,13 +141,15 @@
 	<object Name="Snapjaw" Load="Merge">
 		<skill Name="Axe_Dismember" />
 		<skill Name="Tactics_Throwing" />
-		<!--<stat Name="HeatResistance" Value="100" />
-		<tag Name="BleedLiquid" Value="lava-1000" />
-		<tag Name="BleedColor" Value="&amp;R" />
-		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />-->
 	</object>
+	<!--dangerous monkeys-->
 	<object Name="Baboon" Load="Merge">
 		<removeinventoryobject Blueprint="Small Stone" Number="5" />
+		<tag Name="InventoryPopulationTable" Value="BaboonInventory"/>
+		<tag Name="NoDropOnDeath" />
+	</object>
+	<object Name="Cyclopean Gibbon" Load="Merge">
+		<removeinventoryobject Blueprint="Large Stone" Number="5" />
 		<tag Name="InventoryPopulationTable" Value="BaboonInventory"/>
 		<tag Name="NoDropOnDeath" />
 	</object>
@@ -169,7 +171,7 @@
 		<inventoryobject Blueprint="Madpole_Jaws" />
 		<inventoryobject Blueprint="Goatfolk_Horns" />
 		<property Name="NoLoot" Value="true" />
-		<stat Name="HeatResistance" Value="100" />
+		<stat Name="HeatResistance" Value="25" />
 		<tag Name="BleedLiquid" Value="lava-1000" />
 		<tag Name="BleedColor" Value="&amp;R" />
 		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
@@ -206,11 +208,11 @@
 		<tag Name="Role" Value="Skirmisher" />
 		<tag Name="DynamicObjectsTable:Snapjaws" />
 		<tag Name="AggregateWith" Value="Snapjaw God" />
-		<stat Name="HeatResistance" Value="100" />
+		<stat Name="HeatResistance" Value="30" />
 		<tag Name="BleedLiquid" Value="lava-1000" />
 		<tag Name="BleedColor" Value="&amp;R" />
 		<tag Name="BleedPrefix" Value="{{R|magmatic}}" />
-		<part Name="RandomMutations" Mental="2d4" MentalLevel="1d2" Physical="2d4" PhysicalLevel="1d2" />
+		<part Name="RandomMutations" Mental="1d4" MentalLevel="1d2" Physical="1d4" PhysicalLevel="1d2" />
 	</object>
 	<!-- Fuck it, we ball-->
 	<object Name="Red Jell" Load="Merge">
@@ -256,5 +258,18 @@
 	</object>
 	<object Name="Astral_Tabby_Bite" Load="Merge">
 		<part Name="ModSerrated" Chance="20" />
+	</object>
+	<!--more mutating projectiles-->
+	<object Name="ProjectileGammaMothGaze" Load="Merge">
+		<part Name="MutateOnHit" Chance="100" IncubationTime="5" ResultTable="MutatingResults" />
+	</object>
+	<object Name="Projectile_GlowmothGaze" Load="Merge">
+		<part Name="MutateOnHit" Chance="25" IncubationTime="50" ResultTable="MutatingResults" />
+	</object>
+	<object Name="ProjectileCrungleGaze" Load="Merge">
+		<part Name="MutateOnHit" Chance="25" IncubationTime="50" ResultTable="MutatingResults" />
+	</object>
+	<object Name="ProjectileIrisdualBeam" Load="Merge">
+		<part Name="MutateOnHit" Chance="100" IncubationTime="1" ResultTable="MutatingResults" />
 	</object>
 </objects>
