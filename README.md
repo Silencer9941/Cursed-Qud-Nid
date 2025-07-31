@@ -34,3 +34,10 @@
   25. Added mutating effect to Irisdual Beams, Glowmoths, Crungles, and gamma moth mutating happens much faster.
   26. **Cloning Draught removed from all sources <ins>except Slime Bogs</ins>.**
   27. Cyclopean Gibbons no longer use small rocks, they use grenades now too
+
+## Changes for V 0.1.3
+
+  28. Decreased radpole/snampjaw amalgamation heat resistance from 100%
+  29. Cleaned up code a little bit
+  30. Decreased number possible mutations from Snapjaw Amalgamations
+  31. 
